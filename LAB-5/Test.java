@@ -17,7 +17,7 @@ class Test {
 		System.out.println("Enter age of student");
 		int age = s.nextInt();
 
-		s.close();
+		
 
 		return new Student(new Name(String.join((num == 1) ? "," : ";", fname,
 				mname, lname)), age);
@@ -26,23 +26,31 @@ class Test {
 
 	public static void main(String args[]) throws IOException {
 
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 3; i++) {
 			Student s = Test.readStudent();
 			StudentList.addStudent(s);
 		}
 
-		for (Student s : StudentList.getStudentsWithAge(20)) {
-			System.out.println(s);
+		Student[] age_match = StudentList.getStudentsWithAge(20);
+//		System.out.println(age_match);
+		Student[] name_match = StudentList.getStudentsWithLastName("Sharma");
+		Student[] marks_match = StudentList.getStudentsInRange(16, 20);
+		
+		if(age_match!=null) {
+			for(Student s: age_match) {
+				if(s!=null) System.out.println(s);
+			}
 		}
-
-		for (Student s : StudentList.getStudentsWithLastName("Sharma")) {
-			System.out.println(s);
+		if(name_match!=null) {
+			for(Student s: name_match) {
+				if(s!=null) System.out.println(s);
+			}
 		}
-
-		for (Student s : StudentList.getStudentsInRange(16, 20)) {
-			System.out.println(s);
+		if(marks_match!=null) {
+			for(Student s: marks_match) {
+				if(s!=null) System.out.println(s);
+			}
 		}
-
 	}
 
 }

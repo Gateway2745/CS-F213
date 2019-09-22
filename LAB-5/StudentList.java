@@ -14,11 +14,16 @@ class StudentList {
 	public static Student[] getStudentsWithAge(int age) {
 		
 		Student[] match = new Student[10];
-		match[0]=null;
-		int i = 0;
+
+		//all values are null
+//		for(Student s : list) {
+//			System.out.println(s);
+//		}
+		
+		int i=0;
 		for(Student s : list) {
-			if(s.getAge() == age) {
-				match[i++] = s; 
+			if(s!=null && s.getAge() == age) {
+				match[i++] = s;
 			}
 		}
 		if(match[0] == null) return null;
@@ -26,10 +31,12 @@ class StudentList {
 	}
 
 	public static Student[] getStudentsWithLastName(String lastName) {
+		
 		Student[] match = new Student[10];
 		int i = 0;
 		for(Student s : list) {
-			if(s.getName().getLname() == lastName) {
+			
+			if(s!=null && s.getName().getLname() == lastName) {
 				match[i++] = s; 
 			}
 		}
@@ -42,7 +49,7 @@ class StudentList {
 		Student[] match = new Student[10];
 		int i = 0;
 		for(Student s : list) {
-			if(s.getAge() >= minAge && s.getAge() <= maxAge) {
+			if(s!=null && s.getAge() >= minAge && s.getAge() <= maxAge) {
 				match[i++] = s; 
 			}
 		}
